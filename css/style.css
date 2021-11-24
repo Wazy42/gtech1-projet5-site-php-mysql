@@ -1,0 +1,63 @@
+* {
+	border: 0;
+	padding: 0;
+}
+
+body {
+    font-family: Rubik;
+}
+
+.margin10px-left {
+    margin-left: 10px;
+}
+
+/* Carousel des projets */
+.carousel-slider .carousel-fixed-item {
+    pointer-events: none;
+}
+
+.carousel-slider .carousel-fixed-item .btn {
+    pointer-events: all;
+}
+
+.carousel-slider .carousel-item .img-responsive {
+    width: 100%;
+    max-height: calc(100vh - 64px);
+    object-fit: cover;
+}
+
+/* Images header */
+.centered{
+    display: block;
+    margin: auto;
+    margin-bottom: 5vh;
+    width: 80%;
+}
+
+/* Puissance 4 */
+#game-board {
+	background: #0074B3;
+	width: 730px;
+	cursor: pointer;
+}
+
+.column {
+	width: 100px;
+	display: inline-block;
+}
+
+.column:hover  circle.free {
+	fill: #D5E4ED;
+}
+
+circle.free {
+	fill: #fff;
+}
+
+circle.Rouge {
+	fill: #D50000;
+}
+
+circle.Jaune {
+	fill: #DAD400;
+}
