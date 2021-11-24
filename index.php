@@ -11,59 +11,7 @@
     <title>Turbo Portfolio Ratio</title>
   </head>
   <body>
-    <!--Let browser know website is optimized for mobile-->
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-            <i class="material-icons">menu</i>
-          </a>
-          <a href="index.php" class="brand-logo margin10px-left">Turbo Portfolio Ratio</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="ef.php">EntityFall</a></li>
-            <li><a href="laby.php" >Labyrinthe</a></li>
-            <li><a href="p4.php">Puissance 4</a></li>
-            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <ul class="sidenav" id="mobile-nav">
-      <li><a href="ef.php">EntityFall</a></li>
-      <li><a href="laby.php">Labyrinthe</a></li>
-      <li><a href="p4.php">Puissance 4</a></li>
-      <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">contact</a></li>
-    </ul>
-
-    <!-- Modal formulaire contact -->
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">Prénom</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Nom</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="text" class="validate">
-                <label for="email">E-mail</label>
-              </div>
-            </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a  class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
-      </div>
-    </div>
-
+    <?php require "menu.php" ?>
     <!-- Carousel avec projets -->
     <div id="carouselFirst" class="carousel carousel-slider">
       <div class="carousel-fixed-item center clearfix">
