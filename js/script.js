@@ -27,6 +27,7 @@ $(document).ready(function(){
     $('.modal').modal();
 });
 
+/* PUISSANCE 4 */
 (function() {
 
 	var ConnectFour = function() {
@@ -138,3 +139,8 @@ $(document).ready(function(){
 	};
 	ConnectFour();
 })();
+
+/* ACCOUNT */
+document.getElementById("switch").onclick = function on_off(id) {
+	id.hasAttribute('class', 'hide') ? id.removeAttribute('class', 'hide') : id.setAttribute('class', 'hide');
+} 

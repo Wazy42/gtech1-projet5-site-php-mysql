@@ -1,16 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="css/style.css">
-
-    <title>Puissance 4</title>
-  </head>
-  <body>
     <?php require "menu.php" ?>
     <!-- Structure puissance 4 (à modifier ?) -->
     <div id="puis4" class="modal">
