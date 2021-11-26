@@ -5,6 +5,7 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
     <link rel="stylesheet" href="css/style.css">
+    <?php require_once "config.php"; ?> 
 
     <title>Turbo Portfolio Ratio</title>
   </head>
@@ -22,7 +23,15 @@
             <li><a href="ef.php">EntityFall</a></li>
             <li><a href="laby.php" >Labyrinthe</a></li>
             <li><a href="p4.php">Puissance 4</a></li>
-            <li><a class="waves-effect waves-light btn modal-trigger" href="account.php">Compte TPR</a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger" href="account.php?mode=login">
+              <?php
+                if (isset($_SESSION['user'])) {
+                  echo $_SESSION['user']['username'];
+                } else {
+                  echo "Compte TPR";
+                }
+              ?>
+            </a></li>
           </ul>
         </div>
       </nav>
@@ -32,5 +41,13 @@
       <li><a href="ef.php">EntityFall</a></li>
       <li><a href="laby.php">Labyrinthe</a></li>
       <li class="active"><a href="p4.php">Puissance 4</a></li>
-      <li><a class="waves-effect waves-light btn modal-trigger" href="account.php">Compte TPR</a></li>
+      <li><a class="waves-effect waves-light btn modal-trigger" href="account.php">
+        <?php
+          if (isset($_SESSION['user'])) {
+            echo $_SESSION['user']['username'];
+          } else {
+            echo "Compte TPR";
+          }
+        ?>
+      </a></li>
     </ul>

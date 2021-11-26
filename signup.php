@@ -1,10 +1,10 @@
 <?php 
 require_once "config.php"; 
-$sql = "INSERT INTO user(email,password,login) VALUES(:email,:password,:login)";
+$sql = "INSERT INTO user(email,username,password) VALUES(:email,:username,SHA1(:password))";
 $dataBinded=array(
     ':email'   => $_POST['email'],
-    ':password'=> $_POST['password'],
-    ':login'=> $_POST['login']
+    ':username'=> $_POST['username'],
+    ':password'=> $_POST['password']
 );
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
