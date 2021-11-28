@@ -23,7 +23,7 @@
             <li><a href="ef.php">EntityFall</a></li>
             <li><a href="laby.php" >Labyrinthe</a></li>
             <li><a href="p4.php">Puissance 4</a></li>
-            <li><a class="waves-effect waves-light btn modal-trigger" href="account.php?mode=login">
+            <li><a class="waves-effect waves-light btn modal-trigger" href="isadmin.php">
               <?php
                 if (isset($_SESSION['user'])) {
                   echo $_SESSION['user']['username'];

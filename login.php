@@ -10,5 +10,5 @@ if(empty($user)){
      $_SESSION['user'] = $user;
 }
 
-header('Location:account.php');
+header('Location:isadmin.php');
 ?>
