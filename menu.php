@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <div class="navbar-fixed">
       <nav> 
-        <div class="nav-wrapper">
+        <div class="nav-wrapper cyan darken-1">
           <a href="#" class="sidenav-trigger" data-target="mobile-nav">
             <i class="material-icons">menu</i>
           </a>
@@ -23,7 +23,7 @@
             <li><a href="ef.php">EntityFall</a></li>
             <li><a href="laby.php" >Labyrinthe</a></li>
             <li><a href="p4.php">Puissance 4</a></li>
-            <li><a class="waves-effect waves-light btn modal-trigger" href="isadmin.php">
+            <li><a class="waves-effect waves-light purple btn modal-trigger" href="isadmin.php">
               <?php
                 if (isset($_SESSION['user'])) {
                   echo $_SESSION['user']['username'];
@@ -41,7 +41,7 @@
       <li><a href="ef.php">EntityFall</a></li>
       <li><a href="laby.php">Labyrinthe</a></li>
       <li class="active"><a href="p4.php">Puissance 4</a></li>
-      <li><a class="waves-effect waves-light btn modal-trigger" href="account.php">
+      <li><a class="waves-effect waves-light purple btn modal-trigger" href="isadmin.php">
         <?php
           if (isset($_SESSION['user'])) {
             echo $_SESSION['user']['username'];

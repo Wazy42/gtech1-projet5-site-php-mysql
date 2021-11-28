@@ -39,14 +39,14 @@
                   } else {
                     echo "signup";
                   }
-                ?>" class="modal-close waves-effect waves-green btn-flat left"> <?php
+                ?>" class="modal-close waves-effect btn-flat left"> <?php
                 if (isset($_GET['mode']) && $_GET['mode'] == 'signup') {
                   echo "J'ai déja un compte TPR";
                 } else {
                   echo "Je n'ai pas de compte TPR";
                 }
               ?></a>
-              <button type="submit" class="modal-close waves-effect waves-green btn-flat right">
+              <button type="submit" class="modal-close waves-effect btn-flat right">
                 <?php
                   if (isset($_GET['mode']) && $_GET['mode'] == 'signup') {
                     echo "S'inscire";
@@ -64,7 +64,7 @@
       <div class="row">
         <h2 class="col s10 offset-s1 center">Bonjour <?php echo $_SESSION['user']['username']?> !</h2>
         <form class="col s12" action="dc.php">
-          <button type="submit" class="modal-close waves-effect waves-green btn-flat">
+          <button type="submit" class="modal-close waves-effect btn-flat">
             Se déconnecter
           </button>
         </form>
