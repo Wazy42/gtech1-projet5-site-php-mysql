@@ -38,9 +38,9 @@
     </div>
 
     <ul class="sidenav" id="mobile-nav">
-      <li><a href="ef.php">EntityFall</a></li>
-      <li><a href="laby.php">Labyrinthe</a></li>
-      <li class="active"><a href="p4.php">Puissance 4</a></li>
+      <li><a href="entityfall.php">EntityFall</a></li>
+      <li><a href="labyrinthe.php">Labyrinthe</a></li>
+      <li class="active"><a href="puissance 4.php">Puissance 4</a></li>
       <li><a class="waves-effect waves-light purple btn modal-trigger" href="isadmin.php">
         <?php
           if (isset($_SESSION['user'])) {

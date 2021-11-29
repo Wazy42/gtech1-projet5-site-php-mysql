@@ -4,10 +4,9 @@ $sql = "INSERT INTO user(email,username,password) VALUES(:email,:username,SHA1(:
 $dataBinded=array(
     ':email'   => $_POST['email'],
     ':username'=> $_POST['username'],
-    ':password'=> $_POST['password'],
-    ':password2'=> $_POST['password2']
+    ':password'=> $_POST['password']
 );
-if (":password2" == ":password") {
+if ($_POST["password2"] == $_POST["password"]) {
     $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
 } else {
