@@ -23,6 +23,8 @@ $(document).ready(function(){
     $('.modal').modal();
 });
 
+$('.dropdown-trigger').dropdown();
+
 /* PUISSANCE 4 */
 (function() {
 
