@@ -20,9 +20,15 @@
           </a>
           <a href="index.php" class="brand-logo margin10px-left">Turbo Portfolio Ratio</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="ef.php">EntityFall</a></li>
-            <li><a href="laby.php" >Labyrinthe</a></li>
-            <li><a href="p4.php">Puissance 4</a></li>
+            <?php
+              $sql = "SELECT title, file FROM pages ORDER BY title";
+              $pre = $pdo->prepare($sql);
+              $pre->execute();
+              $data = $pre->fetchAll(PDO::FETCH_ASSOC);
+              foreach ($data as $row) {
+                echo "<li><a href='".$row['file']."'>".$row['title']."</a></li>"; 
+              }
+            ?>
             <a class='dropdown-trigger waves-effect waves-light purple btn' href='#' data-target='dropdown1'>Parametres</a>
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
@@ -31,17 +37,8 @@
                 <button type="submit" class="modal-close">
                   Deconnexion
                 </button>
-              </form></a></li>';}
+              </form></a></li>';} 
               ?>
-              <li><a class="modal-trigger" href="isadmin.php">
-                <?php
-                  if (isset($_SESSION['user'])) {
-                    echo $_SESSION['user']['username'];
-                  } else {
-                    echo "Compte TPR";
-                  }
-                ?>
-            </a></li>
           </ul>
         </div>
       </nav>
