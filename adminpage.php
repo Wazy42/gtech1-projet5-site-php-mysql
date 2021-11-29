@@ -19,6 +19,7 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
                 <th>Identifiant (id)</th>
                 <th>Nom d'utilisateur (username)</th>
                 <th>Adresse mail (email)</th>
+                <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -28,7 +29,19 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
               $pre->execute();
               $data = $pre->fetchAll(PDO::FETCH_ASSOC);
               foreach ($data as $row) {
-                echo "<tr><td>".$row['id']."</td><td>".$row['username']."</td><td>".$row['email']."</td></tr>"; 
+                echo "
+                <tr>
+                  <td>".$row['id']."</td><td>".$row['username']."</td><td>".$row['email'].'</td>
+                  <td>
+                  <form method="post" action="delete.php" onsubmit="return confirm(\'Do you really want to submit the form?\');">
+                    <input type="hidden" name="table" value="user">
+                    <input type="hidden" name="id" value="'.$row['id'].'">
+                    <button type="submit" class="modal-close waves-effect waves-light btn purple">
+                      Supprimer
+                    </button>
+                  </form>
+                  </td>
+                </tr>'; 
               }
             ?>
           </tbody>

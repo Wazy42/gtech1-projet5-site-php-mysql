@@ -21,12 +21,12 @@
           <a href="index.php" class="brand-logo margin10px-left">Turbo Portfolio Ratio</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <?php
-              $sql = "SELECT title, file FROM pages ORDER BY title";
+              $sql = "SELECT id,title FROM pages ORDER BY title";
               $pre = $pdo->prepare($sql);
               $pre->execute();
               $data = $pre->fetchAll(PDO::FETCH_ASSOC);
               foreach ($data as $row) {
-                echo "<li><a href='".$row['file']."'>".$row['title']."</a></li>"; 
+                echo "<li><a href='projet.php?id=".$row['id']."'>".$row['title']."</a></li>"; 
               }
             ?>
             <a class='dropdown-trigger waves-effect waves-light purple btn' data-target='dropdown1'>Parametres</a>
