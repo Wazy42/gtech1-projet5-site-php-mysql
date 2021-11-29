@@ -1,7 +1,7 @@
 <div class="divider"></div>
     <!-- Présentations de créateurs -->
     <div class="row">
-      <div class="col s12 m6 l5 offset-l1">
+      <div class="col s12 l4 offset-l1">
         <div class="card">
           <div class="card-image">
             <img src="img/pdp_Lucas.png" alt="photo de profil Lucas">
@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l5">
+      <div class="col s12 l4 offset-l2">
         <div class="card">
           <div class="card-image">
             <img src="img/pdp-raph.jpg" alt="photo de profil Raphaël">

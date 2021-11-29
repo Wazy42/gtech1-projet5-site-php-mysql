@@ -29,16 +29,25 @@
                 echo "<li><a href='".$row['file']."'>".$row['title']."</a></li>"; 
               }
             ?>
-            <a class='dropdown-trigger waves-effect waves-light purple btn' href='#' data-target='dropdown1'>Parametres</a>
+            <a class='dropdown-trigger waves-effect waves-light purple btn' data-target='dropdown1'>Parametres</a>
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
             <?php if (!isset($_SESSION['user'])){echo 
-            '<li><a><form class="col s12" action="dc.php">
+            '<li><a><form action="dc.php">
                 <button type="submit" class="modal-close">
                   Deconnexion
                 </button>
               </form></a></li>';} 
               ?>
+              <li><a class="modal-trigger" href="isadmin.php">
+                <?php
+                  if (isset($_SESSION['user'])) {
+                    echo $_SESSION['user']['username'];
+                  } else {
+                    echo "Compte TPR";
+                  }
+                ?>
+              </a></li>
           </ul>
         </div>
       </nav>
