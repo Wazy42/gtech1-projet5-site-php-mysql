@@ -49,8 +49,13 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
                   <td colspan=3>
                     <h6>Modification des données de l\'utilisateur:</h6>
                     <form method="post" action="modifyuser.php" onsubmit="return confirm(\'Êtes vous sur de vouloir modifier les données de cet utilisateur ? \nCette action est irréversible.\');>
-                      <input name="username" value='.$row['username'].'>
-                      <input name="username" value='.$row['email'].'>
+                      <div class="input-field">
+                        <input name="username" value='.$row['username'].'>
+                        <label class="active" for="username">nom d\'utilisateur</label>
+                      <div class="input-field">
+                        <input name="email" value='.$row['email'].'>
+                        <label class="active" for="email">email</label>
+                      <input type="hidden" name="id" value='.$row['id'].'>
                       <button type="submit" class="modal-close waves-effect waves-light btn purple">
                         Appliquer
                       </button>
