@@ -1,4 +1,5 @@
 <div class="divider"></div>
+<div class="footer-content">
     <!-- Présentations de créateurs -->
     <div class="row">
       <div class="col s12 l4 offset-l1">
@@ -24,3 +25,4 @@
         </div>
       </div>
     </div>
+</div>

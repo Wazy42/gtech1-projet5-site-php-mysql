@@ -61,3 +61,21 @@ circle.Rouge {
 circle.Jaune {
 	fill: #DAD400;
 }
+
+.footer-content{
+    background-image: url(../img/dark_geometric.png);
+    background-size: 5%;
+    background-repeat: repeat;
+}
+
+.card{
+    color: ivory;
+    background-image: url(../img/gc-logo.jpg);
+    background-size: cover;
+}
+
+.card-image{
+    display: block;
+    margin: auto;
+    width: 90%;
+}
