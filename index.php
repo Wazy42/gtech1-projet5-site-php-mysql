@@ -9,13 +9,13 @@
           <a id="carousel-next" class="moveNextCarousel btn purple waves-effect right">→</a>
         </div>
         <div class="carousel-item ">
-          <a href="ef.php"><img class="img-responsive" src="img/ef-logo.jpg" alt="EntityFall bannière"></a>
+          <a href="projet.php?id=1"><img class="img-responsive" src="img/ef-logo.jpg" alt="EntityFall bannière"></a>
         </div>
         <div class="carousel-item">
-          <a href="laby.php"><img class="img-responsive" src="img/ig_laby.jpg" alt="Labyrithe bannière"></a>
+          <a href="projet.php?id=2"><img class="img-responsive" src="img/ig_laby.jpg" alt="Labyrithe bannière"></a>
         </div>
         <div class="carousel-item">
-          <a href="p4.php"><img class="img-responsive" src="img/p4-logo.jpg" alt="Puissance 4 bannière"></a>
+          <a href="projet.php?id=3"><img class="img-responsive" src="img/p4-logo.jpg" alt="Puissance 4 bannière"></a>
         </div>
       </div>
     </div>

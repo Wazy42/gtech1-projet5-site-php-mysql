@@ -26,7 +26,7 @@
         <!-- TITLE 1 -->
         <h3><?php echo $row['title1']; ?></h3>
         <div class="section row">
-          <img class="col s12 l6 responsive-img modal-trigger" src="img/<?php if ($row['img1']!='') echo $row['img1']; else echo "placeholder.png" ?>" href="#puis4">
+          <img class="col s12 l6 responsive-img modal-trigger" src="img/<?php if ($row['img1']!='') echo $row['img1']; else echo "placeholder.png" ?>">
           <div class="col s12 l6">
             <h4><?php echo $row['title_desc1']; ?></h4>
             <p class="justify flow-text">
@@ -53,10 +53,21 @@
           </div>
         </div>
         <div class="divider"></div>
+        <!-- GALLERY -->
+          <h3><?php echo $row['title_gallery']; ?></h3>
+        <div class="section row">
+          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img1']!='') ? $row['gllry_img1'] : "placeholder.png"; ?>">
+          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img2']!='') ? $row['gllry_img2'] : "placeholder.png"; ?>">
+          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img3']!='') ? $row['gllry_img3'] : "placeholder.png"; ?>">
+          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img4']!='') ? $row['gllry_img4'] : "placeholder.png"; ?>">
+          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img5']!='') ? $row['gllry_img5'] : "placeholder.png"; ?>">
+          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img6']!='') ? $row['gllry_img6'] : "placeholder.png"; ?>">
+        </div>
+        <div class="divider"></div>
         <!-- TITLE 2 -->
         <h3><?php echo $row['title2']; ?></h3>
         <div class="section row">
-          <img class="col s12 l6 responsive-img modal-trigger" src="img/<?php if ($row['img4']!='') echo $row['img4']; else echo "placeholder.png" ?>" href="#puis4">
+          <img class="col s12 l6 responsive-img modal-trigger" src="img/<?php if ($row['img4']!='') echo $row['img4']; else echo "placeholder.png" ?>">
           <div class="col s12 l6">
             <h4><?php echo $row['title_desc4']; ?></h4>
             <p class="justify flow-text">
