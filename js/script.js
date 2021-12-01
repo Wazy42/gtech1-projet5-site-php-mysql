@@ -31,7 +31,7 @@ $(document).ready(function(){
 $('.dropdown-trigger').dropdown();
 
 function HideSwitch(id) {
-  var element = document.getElementById("form-project-" + id);
+  var element = document.getElementById(id);
   if(element.classList == "hide")
     element.classList.remove("hide");
   else 

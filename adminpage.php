@@ -29,19 +29,37 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
               $pre->execute();
               $data = $pre->fetchAll(PDO::FETCH_ASSOC);
               foreach ($data as $row) {
-                echo "
+                echo '
                 <tr>
-                  <td>".$row['id']."</td><td>".$row['username']."</td><td>".$row['email'].'</td>
+                  <td>'.$row['id'].'</td><td>'.$row['username'].'</td><td>'.$row['email'].'</td>
                   <td>
-                  <form method="post" action="delete.php" onsubmit="return confirm(\'Do you really want to submit the form?\');">
+                  <form method="post" action="delete.php" onsubmit="return confirm(\'Êtes vous sur de vouloir supprimer cet utilisateur ? \nCette action est irréversible.\');">
                     <input type="hidden" name="table" value="user">
                     <input type="hidden" name="id" value="'.$row['id'].'">
                     <button type="submit" class="modal-close waves-effect waves-light btn purple">
                       Supprimer
                     </button>
+                    <button type="button" class="modal-close waves-effect waves-light btn purple" onclick="HideSwitch(\'form-user-'.$row['id'].'\')">
+                      Modifier
+                    </button>
                   </form>
                   </td>
-                </tr>'; 
+                </tr>
+                <tr class="hide" id="form-user-'.$row['id'].'">
+                  <td colspan=3>
+                    <h6>Modification des données de l\'utilisateur:</h6>
+                    <form method="post" action="modifyuser.php" onsubmit="return confirm(\'Êtes vous sur de vouloir modifier les données de cet utilisateur ? \nCette action est irréversible.\');>
+                      <input name="username" value='.$row['username'].'>
+                      <input name="username" value='.$row['email'].'>
+                      <button type="submit" class="modal-close waves-effect waves-light btn purple">
+                        Appliquer
+                      </button>
+                      <button type="reset" class="modal-close waves-effect waves-light btn purple" onclick="HideSwitch(\'form-user-'.$row['id'].'\')">
+                        Annuler et fermer
+                      </button>
+                    </form>
+                  </td>
+                </tr>';
               }
             ?>
           </tbody>
@@ -72,7 +90,7 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
                       <button type="submit" class="modal-close waves-effect waves-light btn purple">
                         Supprimer
                       </button>
-                      <button type="button" class="waves-effect waves-light btn purple" onclick="HideSwitch('.$row['id'].')">
+                      <button type="button" class="waves-effect waves-light btn purple" onclick="HideSwitch(\'form-project-'.$row['id'].'\')">
                         Modifier
                       </button>
                     </form>
@@ -217,12 +235,13 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
                       <textarea name="desc5">'.$row['desc5'].'</textarea>
                         <label class="active" for="desc5">desc5</label>
                       </div>
+                      <input type="hidden" name="id" value='.$row['id'].'>
                       <button type="submit" class="modal-close waves-effect waves-light btn purple">
                         Confirmer
                       </button>
-                      <button type="reset" class="modal-close waves-effect waves-light btn purple" onclick="HideSwitch('.$row['id'].')">
+                      <button type="reset" class="modal-close waves-effect waves-light btn purple" onclick="HideSwitch(\'form-user-'.$row['id'].'\')">
                         Annuler et fermer
-                      </button>
+                      </button> 
                     </form>
                   </td>
                 </tr>'; 
