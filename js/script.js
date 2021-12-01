@@ -29,3 +29,11 @@ $(document).ready(function(){
 // Dropdown button (menu.php)
 
 $('.dropdown-trigger').dropdown();
+
+function HideSwitch(id) {
+  var element = document.getElementById("form-project-" + id);
+  if(element.classList == "hide")
+    element.classList.remove("hide");
+  else 
+    element.classList.add("hide");
+}
