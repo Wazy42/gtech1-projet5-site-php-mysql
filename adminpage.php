@@ -24,7 +24,7 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
           </thead>
           <tbody>
             <?php
-              $sql = "SELECT id, username, email FROM user WHERE id != 1 ORDER BY id";
+              $sql = "SELECT id, username, email, password FROM user WHERE id != 1 ORDER BY id";
               $pre = $pdo->prepare($sql);
               $pre->execute();
               $data = $pre->fetchAll(PDO::FETCH_ASSOC);
@@ -55,6 +55,9 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
                       <div class="input-field">
                         <input name="email" value='.$row['email'].'>
                         <label class="active" for="email">email</label>
+                      <div class="input-field">
+                        <input name="password" value='.$row['password'].'>
+                        <label class="active" for="password">mot de passe passe</label>
                       <input type="hidden" name="id" value='.$row['id'].'>
                       <button type="submit" class="modal-close waves-effect waves-light btn purple">
                         Appliquer
