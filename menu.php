@@ -29,67 +29,75 @@
                 echo "<li><a href='projet.php?id=".$row['id']."'>".$row['title_navbar']."</a></li>"; 
               }
               if (isset($_SESSION['user'])) {
-                echo '<a class="waves-effect waves-light purple btn dropdown-trigger" data-target="account">';
+                echo '<li><a class="waves-effect waves-light purple btn dropdown-trigger" data-target="account">';
               } else {
-                echo '<a class="waves-effect waves-light purple btn" href="account.php?mode=login">';
+                echo '<li><a class="waves-effect waves-light purple btn" href="account.php?mode=login">';
               } ?>
               Compte TPR - <?php echo isset($_SESSION['user']) ? $_SESSION['user']['username'] : "Se connecter"; ?>
-            </a>
-            <!-- Dropdown account -->
-            <ul id='account' class='dropdown-content'>
-              <li>
-                <a class="modal-trigger" href="isadmin.php">
-                  <?php
-                    if (isset($_SESSION['user'])) {
-                      echo 'Paramètres
-                </a>
-              </li>
-              <li>
-                <a href="dc.php">
-                      Deconnexion';
-                    } else {
-                      echo 'Compte TPR';
-                    } ?>
-                </a>
-              </li>
-              <li>
-                <a class="modal-trigger" href="#contact">Nous contacter</a>
-              </li>
-            </ul>
+            </a></li>
+            <li>
+              <a class="modal-trigger waves-effect waves-light purple btn" href="#contact">Nous contacter</a>
+            </li>
           </ul>
         </div>
       </nav>
     </div>
 
+    <!-- Dropdown account -->
+    <ul id='account' class='dropdown-content'>
+      <li>
+        <a class="modal-trigger" href="isadmin.php">
+          <?php
+            if (isset($_SESSION['user'])) {
+              echo 'Paramètres
+        </a>
+      </li>
+      <li>
+        <a href="dc.php">
+              Deconnexion';
+            } else {
+              echo 'Compte TPR';
+            } ?>
+        </a>
+      </li>
+    </ul>
+
     <!-- Modal formulaire contact -->
     <div id="contact" class="modal">
       <div class="modal-content">
         <div class="row">
-          <form class="col s12">
+          <form class="col s12" method="post" action="mail.php">
             <div class="row">
               <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
+                <input name="first_name" type="text" class="validate">
                 <label for="first_name">Prénom</label>
               </div>
               <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
+                <input name="last_name" type="text" class="validate">
                 <label for="last_name">Nom</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="text" class="validate">
-                <label for="email">E-mail</label>
+                <textarea name="msg" type="text"></textarea>
+                <label for="msg">Votre message</label>
               </div>
             </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="mail" type="text" class="validate">
+                <label for="mail">E-mail</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="modal-footer">
-        <a  class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
       </div>
     </div>
 
-    <ul class="sidenav" id="mobile-nav">
+    <ul id="mobile-nav" class="sidenav">
       <?php
         $sql = "SELECT id, title_navbar FROM pages ORDER BY title_navbar";
         $pre = $pdo->prepare($sql);
@@ -98,27 +106,14 @@
         foreach ($data as $row) {
           echo "<li><a href='projet.php?id=".$row['id']."'>".$row['title_navbar']."</a></li>"; 
         }
-      ?>
-      <a class='dropdown-trigger waves-effect waves-light purple btn' data-target='dropdown1'>Parametres</a>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown1' class='dropdown-content'>
-        <?php if (isset($_SESSION['user'])){echo '
-          <li><a><form action="dc.php">
-            <button type="submit" class="modal-close">
-              Deconnexion
-            </button>
-          </form></a></li>'
-        ;} ?>
-        <li>
-          <a class="modal-trigger" href="isadmin.php">
-            <?php
-              if (isset($_SESSION['user'])) {
-                echo $_SESSION['user']['username'];
-              } else {
-                echo "Compte TPR";
-              }
-            ?>
-          </a>
-        </li>
-      </ul>
+        if (isset($_SESSION['user'])) {
+          echo '<li><a class="waves-effect waves-light purple btn dropdown-trigger" data-target="account">';
+        } else {
+          echo '<li><a class="waves-effect waves-light purple btn" href="account.php?mode=login">';
+        } ?>
+        Compte TPR - <?php echo isset($_SESSION['user']) ? $_SESSION['user']['username'] : "Se connecter"; ?>
+      </a></li>
+      <li>
+        <a class="modal-trigger waves-effect waves-light purple btn" href="#contact">Nous contacter</a>
+      </li>
     </ul>

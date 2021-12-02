@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <?php require "menu.php" ?>
+    <?php require "menu.php" ;?>
     <!-- Carousel avec projets -->
     <div class="row">
       <div id="carouselFirst" class="col s12 l10 offset-l1 carousel carousel-slider">
@@ -8,19 +8,20 @@
           <a id="carousel-prev" class="movePrevCarousel btn purple waves-effect left">←</a>
           <a id="carousel-next" class="moveNextCarousel btn purple waves-effect right">→</a>
         </div>
-        <div class="carousel-item ">
-          <a href="projet.php?id=1"><img class="img-responsive" src="img/ef-logo.jpg" alt="EntityFall bannière"></a>
-        </div>
-        <div class="carousel-item">
-          <a href="projet.php?id=2"><img class="img-responsive" src="img/ig_laby.jpg" alt="Labyrithe bannière"></a>
-        </div>
-        <div class="carousel-item">
-          <a href="projet.php?id=3"><img class="img-responsive" src="img/p4-logo.jpg" alt="Puissance 4 bannière"></a>
-        </div>
+        <?php 
+          $sql = "SELECT img_header, id FROM pages ORDER BY title_navbar";
+          $pre = $pdo->prepare($sql);
+          $pre->execute();
+          $data = $pre->fetchAll(PDO::FETCH_ASSOC);
+          foreach ($data as $row) { echo '
+          <div class="carousel-item">
+            <a href="projet.php?id='.$row['id'].'"><img class="img-responsive" src="img/'.$row['img_header'].'"></a>
+          </div>
+        ';}?>
       </div>
     </div>
 
-    <?php require "footer.php" ?>
+    <?php require "footer.php" ;?>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
