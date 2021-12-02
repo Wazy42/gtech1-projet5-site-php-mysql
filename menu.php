@@ -52,10 +52,41 @@
                     } ?>
                 </a>
               </li>
+              <li>
+                <a class="modal-trigger" href="#contact">Nous contacter</a>
+              </li>
             </ul>
           </ul>
         </div>
       </nav>
+    </div>
+
+    <!-- Modal formulaire contact -->
+    <div id="contact" class="modal">
+      <div class="modal-content">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate">
+                <label for="first_name">Prénom</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Nom</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="text" class="validate">
+                <label for="email">E-mail</label>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a  class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+      </div>
     </div>
 
     <ul class="sidenav" id="mobile-nav">

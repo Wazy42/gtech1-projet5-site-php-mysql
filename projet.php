@@ -56,12 +56,9 @@
         <!-- GALLERY -->
           <h3><?php echo $row['title_gallery']; ?></h3>
         <div class="section row">
-          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img1']!='') ? $row['gllry_img1'] : "placeholder.png"; ?>">
-          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img2']!='') ? $row['gllry_img2'] : "placeholder.png"; ?>">
-          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img3']!='') ? $row['gllry_img3'] : "placeholder.png"; ?>">
-          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img4']!='') ? $row['gllry_img4'] : "placeholder.png"; ?>">
-          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img5']!='') ? $row['gllry_img5'] : "placeholder.png"; ?>">
-          <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/<?php echo ($row['gllry_img6']!='') ? $row['gllry_img6'] : "placeholder.png"; ?>">
+          <?php for ($i=1; $i<7; $i++) {echo '
+            <img class="col s12 m6 l4 responsive-img modal-trigger" src="img/'; echo ($row['gllry_img'.$i]!='') ? $row['gllry_img'.$i].'">' : 'placeholder.png">';} ?>
+          
         </div>
         <div class="divider"></div>
         <!-- TITLE 2 -->

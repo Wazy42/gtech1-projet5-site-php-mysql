@@ -46,19 +46,22 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
                   </td>
                 </tr>
                 <tr class="hide" id="form-user-'.$row['id'].'">
-                  <td colspan=3>
+                  <td colspan=4>
                     <h6>Modification des données de l\'utilisateur:</h6>
                     <form method="post" action="modifyuser.php" onsubmit="return confirm(\'Êtes vous sur de vouloir modifier les données de cet utilisateur ? \nCette action est irréversible.\');>
                       <div class="input-field">
-                        <input name="username" value='.$row['username'].'>
-                        <label class="active" for="username">nom d\'utilisateur</label>
+                        <input name="username" value="'.$row['username'].'">
+                        <label class="active" for="username">Nom d\'utilisateur</label>
+                      </div>
                       <div class="input-field">
-                        <input name="email" value='.$row['email'].'>
-                        <label class="active" for="email">email</label>
+                        <input name="email" value="'.$row['email'].'">
+                        <label class="active" for="email">E-mail</label>
+                      </div>
                       <div class="input-field">
-                        <input name="password" value='.$row['password'].'>
-                        <label class="active" for="password">mot de passe passe</label>
-                      <input type="hidden" name="id" value='.$row['id'].'>
+                        <input type="password" name="password">
+                        <label for="password"Mmot de passe passe</label>
+                      </div>
+                      <input type="hidden" name="id" value="'.$row['id'].'">
                       <button type="submit" class="modal-close waves-effect waves-light btn purple">
                         Appliquer
                       </button>
@@ -88,9 +91,9 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
               $pre->execute();
               $data = $pre->fetchAll(PDO::FETCH_ASSOC);
               foreach ($data as $row) {
-                echo "
+                echo '
                 <tr>
-                  <td>".$row['id']."</td><td>".$row['title_navbar'].'</td>
+                  <td>'.$row['id'].'</td><td>'.$row['title_navbar'].'</td>
                   <td>
                     <form method="post" action="delete.php" onsubmit="return confirm(\'Etes vous sûr de vouloir supprimer cet utilisateur?(action irreversible)\');">
                       <input type="hidden" name="table" value="pages">
@@ -105,145 +108,77 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']['id'] == 1)) {
                   </td>
                 </tr>
                 <tr>
-                  <td colspan=2>
+                  <td colspan=3>
                     <form class="hide" method="post" action="modifypage.php" id="form-project-'.$row['id'].'">
                       <div class="input-field">
-                        <input name="title_navbar" value='.$row['title_navbar'].'>
-                        <label class="active" for="title_navbar">title_navbar</label>
+                        <input name="title_navbar" value="'.$row['title_navbar'].'">
+                        <label class="active" for="title_navbar">Nom de l\'onglet</label>
                       </div>
                       <div class="input-field">
-                        <input name="h1" value='.$row['h1'].'>
-                        <label class="active" for="h1">h1</label>
+                        <input name="h1" value="'.$row['h1'].'">
+                        <label class="active" for="h1">Titre</label>
                       </div>
                       <div class="input-field">
-                        <input name="img_header" value='.$row['img_header'].'>
-                        <label class="active" for="img_header">img_header</label>
+                        <input name="img_header" value="'.$row['img_header'].'">
+                        <label class="active" for="img_header">Image-titre</label>
                       </div>
                       <div class="input-field">
-                        <input name="description" value='.$row['description'].'>
-                        <label class="active" for="description">description</label>
+                        <textarea name="description">'.$row['description'].'</textarea>
+                        <label class="active" for="description">Description du projet</label>
                       </div>
                       <div class="input-field">
-                        <input name="title1" value='.$row['title1'].'>
-                        <label class="active" for="title1">title1</label>
+                        <input name="title1" value="'.$row['title1'].'">
+                        <label class="active" for="title1">Titre prtie 1</label>
+                      '; for ($i=1; $i<4; $i++) { echo '
                       </div>
                       <div class="input-field">
-                        <input name="img1" value='.$row['img1'].'>
-                        <label class="active" for="img1">img1</label>
+                        <input name="img'.$i.'" value="'.$row['img'.$i].'">
+                        <label class="active" for="img'.$i.'">Image '.$i.'</label>
                       </div>
                       <div class="input-field">
-                        <input name="title_desc1" value='.$row['title_desc1'].'>
-                        <label class="active" for="title_desc1">title_desc1</label>
+                        <input name="title_desc'.$i.'" value="'.$row['title_desc'.$i].'">
+                        <label class="active" for="title_desc'.$i.'">Titre description '.$i.'</label>
                       </div>
                       <div class="input-field">
-                        <textarea name="desc1">'.$row['desc1'].'</textarea>
-                        <label class="active" for="desc1">desc1</label>
+                        <textarea name="desc'.$i.'">'.$row['desc'.$i].'</textarea>
+                        <label class="active" for="desc'.$i.'">Description '.$i.'</label>
+                      </div>
+                      ';} echo '
+                      <div class="input-field">
+                        <input name="title_gallery" value="'.$row['title_gallery'].'">
+                        <label class="active" for="title_gallery">Titre gallerie</label>
+                      </div>
+                      '; for ($i=1; $i<7; $i++) { echo '
+                      <div class="input-field">
+                        <input name="gllry_title'.$i.'" value="'.$row['gllry_title'.$i].'">
+                        <label class="active" for="gllry_title'.$i.'">Titre image '.$i.'</label>
                       </div>
                       <div class="input-field">
-                        <input name="img2" value='.$row['img2'].'>
-                        <label class="active" for="img2">img2</label>
+                        <input name="gllry_img'.$i.'" value="'.$row['gllry_img'.$i].'">
+                        <label class="active" for="gllry_img'.$i.'">Image '.$i.'</label>
+                      </div>
+                      ';} echo '
+                      <div class="input-field">
+                        <input name="title2" value="'.$row['title2'].'">
+                        <label class="active" for="title2">Titre partie 2</label>
+                      </div>
+                      '; for ($i=4; $i<6; $i++) { echo '
+                        </div>
+                      <div class="input-field">
+                        <input name="img'.$i.'" value="'.$row['img'.$i].'">
+                        <label class="active" for="img'.$i.'">Image '.$i.'</label>
                       </div>
                       <div class="input-field">
-                        <input name="title_desc2" value='.$row['title_desc2'].'>
-                        <label class="active" for="title_desc2">title_desc2</label>
+                        <input name="title_desc'.$i.'" value="'.$row['title_desc'.$i].'">
+                        <label class="active" for="title_desc'.$i.'">Titre description '.$i.'</label>
                       </div>
                       <div class="input-field">
-                      <textarea name="desc2">'.$row['desc2'].'</textarea>
-                        <label class="active" for="desc2">desc2</label>
+                        <textarea name="desc'.$i.'">'.$row['desc'.$i].'</textarea>
+                        <label class="active" for="desc'.$i.'">Description '.$i.'</label>
                       </div>
-                      <div class="input-field">
-                        <input name="img3" value='.$row['img3'].'>
-                        <label class="active" for="img3">img3</label>
+                      ';} echo '
                       </div>
-                      <div class="input-field">
-                        <input name="title_desc3" value='.$row['title_desc3'].'>
-                        <label class="active" for="title_desc3">title_desc3</label>
-                      </div>
-                      <div class="input-field">
-                      <textarea name="desc3">'.$row['desc3'].'</textarea>
-                        <label class="active" for="desc3">desc3</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="title_gallery" value='.$row['title_gallery'].'>
-                        <label class="active" for="title_gallery">title_gallery</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_title1" value='.$row['gllry_title1'].'>
-                        <label class="active" for="gllry_title1">gllry_title1</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_img1" value='.$row['gllry_img1'].'>
-                        <label class="active" for="gllry_img1">gllry_img1</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_title2" value='.$row['gllry_title2'].'>
-                        <label class="active" for="gllry_title2">gllry_title2</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_img2" value='.$row['gllry_img2'].'>
-                        <label class="active" for="gllry_img2">gllry_img2</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_title3" value='.$row['gllry_title3'].'>
-                        <label class="active" for="gllry_title3">gllry_title3</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_img3" value='.$row['gllry_img3'].'>
-                        <label class="active" for="gllry_img3">gllry_img3</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_title4" value='.$row['gllry_title4'].'>
-                        <label class="active" for="gllry_title4">gllry_title4</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_img4" value='.$row['gllry_img4'].'>
-                        <label class="active" for="gllry_img4">gllry_img4</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_title5" value='.$row['gllry_title5'].'>
-                        <label class="active" for="gllry_title5">gllry_title5</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_img5" value='.$row['gllry_img5'].'>
-                        <label class="active" for="gllry_img5">gllry_img5</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_title6" value='.$row['gllry_title6'].'>
-                        <label class="active" for="gllry_title6">gllry_title6</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="gllry_img6" value='.$row['gllry_img6'].'>
-                        <label class="active" for="gllry_img6">gllry_img6</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="title2" value='.$row['title2'].'>
-                        <label class="active" for="title2">title2</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="img4" value='.$row['img4'].'>
-                        <label class="active" for="img4">img4</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="title_desc4" value='.$row['title_desc4'].'>
-                        <label class="active" for="title_desc4">title_desc4</label>
-                      </div>
-                      <div class="input-field">
-                      <textarea name="desc4">'.$row['desc4'].'</textarea>
-                        <label class="active" for="desc4">desc4</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="img5" value='.$row['img5'].'>
-                        <label class="active" for="img5">img5</label>
-                      </div>
-                      <div class="input-field">
-                        <input name="title_desc5" value='.$row['title_desc5'].'>
-                        <label class="active" for="title_desc5">title_desc5</label>
-                      </div>
-                      <div class="input-field">
-                      <textarea name="desc5">'.$row['desc5'].'</textarea>
-                        <label class="active" for="desc5">desc5</label>
-                      </div>
-                      <input type="hidden" name="id" value='.$row['id'].'>
+                      <input type="hidden" name="id" value="'.$row['id'].'">
                       <button type="submit" class="modal-close waves-effect waves-light btn purple">
                         Confirmer
                       </button>
